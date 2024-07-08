@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/search', async (req, res) => {
   const keyword = req.query.keyword;
   const page = parseInt(req.query.page) || 1;
-  const itemsPerPage = 10;
+  const itemsPerPage = req.query.itemsPerPage || 10;
 
   if (!keyword) {
     return res.status(400).json({ error: 'É necessário enviar o parâmetro Keyword.' });
