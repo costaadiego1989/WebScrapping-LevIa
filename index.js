@@ -5,6 +5,10 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+app.get('/', (req, res) => {
+    res.send({aviso: "acesse a rota /search e não esqueça de passar o parâmetro keyword."})
+});
+
 app.get('/search', async (req, res) => {
   const keyword = req.query.keyword;
   const page = parseInt(req.query.page) || 1;
