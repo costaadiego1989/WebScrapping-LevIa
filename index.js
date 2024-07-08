@@ -40,7 +40,7 @@ async function scrapeGoogleShopping(keyword, page, itemsPerPage) {
       title: $(element).find('.tAxDx').text().trim(),
       price: $(element).find('.a8Pemb').text().trim(),
       seller: $(element).find('.aULzUe').text().trim(),
-      imageUrl: $(element).find('img.TL92Hc').attr('src'),
+      imageUrl: $(element).find('div > img').attr('src'),
       link: $(element).find('a.shntl').attr('href')
     };
 
