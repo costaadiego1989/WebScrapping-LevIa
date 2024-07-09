@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.get('/search', async (req, res) => {
   const keyword = req.query.keyword;
   const page = parseInt(req.query.page) || 1;
-  const itemsPerPage = req.query.itemsPerPage || 10;
+  const itemsPerPage = parseInt(req.query.itemsPerPage) || 10;
 
   if (!keyword) {
     return res.status(400).json({ error: 'É necessário enviar o parâmetro Keyword.' });
@@ -28,7 +28,7 @@ app.get('/search', async (req, res) => {
 
 async function scrapeGoogleShopping(keyword, page, itemsPerPage) {
   const start = (page - 1) * itemsPerPage;
-  const url = `https://www.google.com/search?q=${encodeURIComponent(keyword)}&tbm=shop&start=${start}`;
+  const url = `https://www.google.com/search?q=${encodeURIComponent(keyword)}&tbm=shop&start=${start}&gl=br&hl=pt-BR`;
 
   const response = await axios.get(url, {
     headers: {
