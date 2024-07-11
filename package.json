@@ -16,6 +16,7 @@
     "express": "^4.19.2",
     "http-proxy-agent": "^7.0.2",
     "https-proxy-agent": "^7.0.5",
+    "node-cache": "^5.1.2",
     "proxy-agent": "^6.4.0",
     "selenium-webdriver": "^4.22.0",
     "sharp": "^0.33.4",
