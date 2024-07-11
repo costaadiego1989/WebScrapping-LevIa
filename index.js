@@ -58,10 +58,10 @@ async function scrapeGoogleShopping(keyword, page, itemsPerPage) {
         let productElements;
 
         try {
-            productElements = await driver.wait(until.elementsLocated(By.css('.sh-dgr__content')), 20000);
+            productElements = await driver.wait(until.elementsLocated(By.css('.sh-dgr__content')), 15000);
         } catch (error) {
             console.log('Não foi possível encontrar .sh-dgr__content, tentando alternativa...');
-            productElements = await driver.wait(until.elementsLocated(By.css('.sh-dlr__list-result')), 20000);
+            productElements = await driver.wait(until.elementsLocated(By.css('.sh-dlr__list-result')), 15000);
         }
 
         for (let i = 0; i < Math.min(itemsPerPage, productElements.length); i++) {
