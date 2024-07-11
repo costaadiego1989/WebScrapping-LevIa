@@ -6,7 +6,7 @@ const NodeCache = require('node-cache');
 const app = express();
 const PORT = 3009;
 const MAX_PRODUCTS = 50;
-const CACHE_TTL = 600; // 10 minutos
+const CACHE_TTL = 600;
 
 const cache = new NodeCache({ stdTTL: CACHE_TTL });
 const driverPool = [];
@@ -23,7 +23,7 @@ async function getDriver() {
 }
 
 async function releaseDriver(driver) {
-    if (driverPool.length < 5) { // Manter até 5 instâncias no pool
+    if (driverPool.length < 5) {
         driverPool.push(driver);
     } else {
         await driver.quit();
@@ -115,5 +115,7 @@ async function extractTotalResults(driver) {
 }
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Servvidor rodando na porta: http://localhost:${PORT}`);
 });
+
+//Código feito por Diego Costa de Oliveira: (21)99300-1883. Utilizado Node.js com Selenium
