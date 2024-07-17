@@ -84,7 +84,7 @@ async function extractProductInfo(element) {
     try {
         const [title, price, seller, imageUrl, link] = await Promise.all([
             element.findElement(By.css('.tAxDx, .EI11Pd')).getText(),
-            element.findElement(By.css('.a8Pemb, .QIrs8')).getText(),
+            element.findElement(By.css('.a8Pemb')).getText(),
             element.findElement(By.css('.aULzUe, .IuHnof')).getText().catch(() => 'Não disponível'),
             element.findElement(By.css('img')).getAttribute('src'),
             element.findElement(By.css('a')).getAttribute('href')
@@ -115,7 +115,7 @@ async function extractTotalResults(driver) {
 }
 
 app.listen(PORT, () => {
-    console.log(`Servvidor rodando na porta: http://localhost:${PORT}`);
+    console.log(`Servidor rodando na porta: http://localhost:${PORT}`);
 });
 
 //Código feito por Diego Costa de Oliveira: (21)99300-1883. Utilizado Node.js com Selenium
